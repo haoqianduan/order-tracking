@@ -1,6 +1,6 @@
 {
   "name": "@bestvoy/order-tracking",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A framework-agnostic order tracking search component that works with any frontend framework",
   "main": "dist/order-tracking.cjs.js",
   "module": "dist/order-tracking.esm.js",
@@ -39,13 +39,13 @@
   ],
   "author": "BestVoy Team <support@bestvoy.com>",
   "license": "MIT",
-  "homepage": "https://github.com/bestvoy/order-tracking#readme",
+  "homepage": "https://github.com/haoqianduan/order-tracking#readme",
   "bugs": {
-    "url": "https://github.com/bestvoy/order-tracking/issues"
+    "url": "https://github.com/haoqianduan/order-tracking/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bestvoy/order-tracking.git"
+    "url": "git+https://github.com/haoqianduan/order-tracking.git"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
