@@ -1,0 +1,69 @@
+{
+  "name": "@bestvoy/order-tracking",
+  "version": "1.0.1",
+  "description": "A framework-agnostic order tracking search component that works with any frontend framework",
+  "main": "dist/order-tracking.cjs.js",
+  "module": "dist/order-tracking.esm.js",
+  "unpkg": "dist/order-tracking.min.js",
+  "jsdelivr": "dist/order-tracking.min.js",
+  "types": "src/order-tracking.d.ts",
+  "files": [
+    "dist",
+    "src/order-tracking.d.ts",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "order-tracking",
+    "tracking",
+    "search",
+    "component",
+    "framework-agnostic",
+    "vanilla-js",
+    "react",
+    "vue",
+    "angular",
+    "svelte",
+    "web-component",
+    "ui-component",
+    "shipping",
+    "delivery",
+    "package-tracking"
+  ],
+  "author": "BestVoy Team <support@bestvoy.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/bestvoy/order-tracking#readme",
+  "bugs": {
+    "url": "https://github.com/bestvoy/order-tracking/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bestvoy/order-tracking.git"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.9.6",
+    "rollup-plugin-postcss": "^4.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
+

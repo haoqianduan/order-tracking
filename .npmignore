@@ -1,0 +1,14 @@
+src/
+rollup.config.js
+.gitignore
+*.log
+.DS_Store
+coverage/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+node_modules/
+examples/
+

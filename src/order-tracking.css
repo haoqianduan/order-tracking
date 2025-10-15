@@ -1,0 +1,199 @@
+/* Order Tracking Component Styles */
+
+.order-tracking-search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+}
+
+.order-tracking-search-container {
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+.order-tracking-search-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 30px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.order-tracking-search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.order-tracking-search-box-error {
+  border-color: #F5222D;
+}
+
+.order-tracking-search-box:focus-within {
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.order-tracking-search-input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.order-tracking-search-input {
+  width: 100%;
+  padding: 16px 20px;
+  padding-right: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  background: transparent;
+  font-family: inherit;
+}
+
+.order-tracking-search-input::placeholder {
+  color: #999;
+}
+
+.order-tracking-clear-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.order-tracking-clear-button:hover {
+  background-color: #333;
+}
+
+.order-tracking-clear-button svg {
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+.order-tracking-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 120px;
+  font-family: inherit;
+}
+
+.order-tracking-search-button:hover {
+  background: #333;
+}
+
+.order-tracking-search-button:active {
+  background: #000;
+}
+
+.order-tracking-search-icon {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+.order-tracking-error-message {
+  margin-top: 16px;
+  color: #F5222D;
+  font-size: 14px;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  height: 16px;
+  overflow: hidden;
+}
+
+.order-tracking-error-message.visible {
+  opacity: 1;
+  height: 16px;
+}
+
+.order-tracking-search-mobile {
+  margin-top: 30px;
+}
+
+.order-tracking-search-mobile .order-tracking-search-button {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .order-tracking-search-title {
+    margin-bottom: 58px !important;
+  }
+  
+  .order-tracking-search-section {
+    min-height: 300px;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .order-tracking-search-box {
+    background: #1a1a1a;
+    border-color: #333;
+  }
+
+  .order-tracking-search-input {
+    color: #fff;
+  }
+
+  .order-tracking-search-input::placeholder {
+    color: #666;
+  }
+
+  .order-tracking-search-title {
+    color: #fff;
+  }
+
+  .order-tracking-clear-button {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .order-tracking-clear-button:hover {
+    background-color: #ddd;
+  }
+
+  .order-tracking-search-button {
+    background: #fff;
+    color: #000;
+  }
+
+  .order-tracking-search-button:hover {
+    background: #ddd;
+  }
+}
+

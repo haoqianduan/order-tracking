@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking - Vanilla JS Example</title>
+  <link rel="stylesheet" href="../dist/order-tracking.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .header {
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .controls {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .controls button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .controls button:hover {
+      background: #f5f5f5;
+    }
+
+    #tracking-container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Order Tracking Component - Vanilla JS</h1>
+    <p>A framework-agnostic order tracking component</p>
+  </div>
+
+  <div class="container">
+    <div class="controls">
+      <h3>Controls</h3>
+      <button onclick="toggleMobile()">Toggle Mobile/Desktop</button>
+      <button onclick="changeLanguage()">Change Language</button>
+      <button onclick="destroyComponent()">Destroy Component</button>
+      <button onclick="recreateComponent()">Recreate Component</button>
+    </div>
+
+    <div id="tracking-container"></div>
+  </div>
+
+  <script src="../dist/order-tracking.js"></script>
+  <script>
+    let tracker = null;
+    let currentLang = 'en';
+
+    const texts = {
+      en: {
+        title: 'Order Tracking',
+        placeholder: 'Enter your order number',
+        trackButton: 'Track',
+        errorEmpty: 'Please enter an order number',
+        errorNotFound: 'Could Not Find Order',
+        errorNotShipped: 'This order has not been shipped yet. Please check again after it has been shipped',
+        errorGeneric: 'An error occurred while tracking your order'
+      },
+      es: {
+        title: 'Seguimiento de Pedido',
+        placeholder: 'Ingrese su número de pedido',
+        trackButton: 'Rastrear',
+        errorEmpty: 'Por favor ingrese un número de pedido',
+        errorNotFound: 'No se pudo encontrar el pedido',
+        errorNotShipped: 'Este pedido aún no ha sido enviado. Por favor, consulte de nuevo después de que haya sido enviado',
+        errorGeneric: 'Ocurrió un error al rastrear su pedido'
+      }
+    };
+
+    function initTracker() {
+      tracker = new OrderTracking({
+        apiUrl: '/api/common/order_tracking',
+        container: '#tracking-container',
+        texts: texts[currentLang],
+        onSuccess: (data) => {
+          console.log('Tracking successful:', data);
+          alert('Order found! Opening tracking page...');
+        },
+        onError: (error) => {
+          console.error('Tracking error:', error);
+        }
+      });
+    }
+
+    function toggleMobile() {
+      // Toggle breakpoint to force layout change
+      const currentBreakpoint = tracker.mobileBreakpoint || 700;
+      const newBreakpoint = currentBreakpoint === 700 ? 2000 : 700;
+      tracker.updateConfig({ mobileBreakpoint: newBreakpoint });
+      alert(`Mobile breakpoint changed to ${newBreakpoint}px. Current layout: ${tracker.isMobile ? 'Mobile' : 'Desktop'}`);
+    }
+
+    function changeLanguage() {
+      currentLang = currentLang === 'en' ? 'es' : 'en';
+      if (tracker) {
+        tracker.updateConfig({ texts: texts[currentLang] });
+      }
+    }
+
+    function destroyComponent() {
+      if (tracker) {
+        tracker.destroy();
+        tracker = null;
+        alert('Component destroyed!');
+      }
+    }
+
+    function recreateComponent() {
+      if (tracker) {
+        tracker.destroy();
+      }
+      initTracker();
+      alert('Component recreated!');
+    }
+
+    // Initialize on page load
+    initTracker();
+  </script>
+</body>
+</html>
+
